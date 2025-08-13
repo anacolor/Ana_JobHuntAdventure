@@ -30,10 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
       obstacle.size = Math.floor(canvas.height * 0.15);
 
       obstacleSpeed = 3;
-      gravity = canvas.height * 0.01;
+      
+      // Slightly slower fall for smoother arc
+      gravity = canvas.height * 0.009;
 
-      // Slightly reduced jump height but still clears the obstacle
-      Ana.jumpVelocity = -Math.min(canvas.height * 0.17, canvas.height - Ana.size - 10);
+      // Lower jump so Ana doesn't hit top of screen
+      Ana.jumpVelocity = -Math.min(canvas.height * 0.13, canvas.height - Ana.size - 10);
     } else {
       canvas.width = 600;
       canvas.height = 200;
@@ -147,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("keydown", (e) => {
     if (e.code === "Space" && !Ana.jumping && !gameOver) {
-      Ana.vy = Ana.jumpVelocity * (isMobile ? 0.75 : 0.7);
+      Ana.vy = Ana.jumpVelocity * (isMobile ? 1: 0.7);
       Ana.jumping = true;
     }
   });
@@ -167,4 +169,5 @@ document.addEventListener("DOMContentLoaded", () => {
   draw();
   update();
 });
+
 
