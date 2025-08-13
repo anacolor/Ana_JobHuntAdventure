@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  canvas.addEventListener(
+  document.addEventListener(
     "touchstart",
     (e) => {
       e.preventDefault();
@@ -175,4 +175,3 @@ document.addEventListener("DOMContentLoaded", () => {
   draw();
   update();
 });
-
