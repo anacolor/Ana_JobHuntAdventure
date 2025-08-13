@@ -160,11 +160,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-// Touch listener only on canvas to avoid blocking links
-  canvas.addEventListener(
+  document.addEventListener(
     "touchstart",
     (e) => {
-      e.preventDefault(); // only prevent default on canvas
+      e.preventDefault();
       if (!Ana.jumping && !gamePaused) {
         Ana.vy = Ana.jumpVelocity;
         Ana.jumping = true;
@@ -172,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { passive: false }
   );
+
   draw();
   update();
 });
-
