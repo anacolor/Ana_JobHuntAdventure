@@ -124,8 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (score === 5) {
           showMessage("Congratulations! You made it!", true);
           if (qr) qr.style.display = "block";
-          gameOver = true; // stop game
-          return;
+          gameOver = true; //  stop movement but still draw final score
+         
         }
       }
 
@@ -167,3 +167,4 @@ document.addEventListener("DOMContentLoaded", () => {
   draw();
   update();
 });
+
